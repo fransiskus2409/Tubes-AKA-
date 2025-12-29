@@ -105,3 +105,4 @@ if st.session_state.time_iterative > 0 and st.session_state.time_recursive > 0:
     ax.set_title("Perbandingan Waktu Eksekusi Iteratif vs Rekursif")
     ax.legend()
     st.pyplot(fig)
+    plt.close(fig)
