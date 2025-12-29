@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import random
 import time
+import matplotlib.pyplot as plt
 
 # Fungsi iteratif untuk menghitung total penghasilan
 @st.cache
@@ -96,10 +97,11 @@ if st.session_state.time_iterative > 0 and st.session_state.time_recursive > 0:
         recursive_times.append(time.time() - start_time_rec)
         
     # Plot grafik
-    # TAMBAHKAN INI:
-chart_data = pd.DataFrame({
-    'Jumlah Karyawan': list(n_values),
-    'Iteratif': iterative_times,
-    'Rekursif': recursive_times
-})
-st.line_chart(chart_data.set_index('Jumlah Karyawan'))
+    fig, ax = plt.subplots()
+    ax.plot(n_values, iterative_times, marker='o', label='Iteratif', color='blue')
+    ax.plot(n_values, recursive_times, marker='o', label='Rekursif', color='red')
+    ax.set_xlabel("Nilai n")
+    ax.set_ylabel("Waktu Eksekusi (detik)")
+    ax.set_title("Perbandingan Waktu Eksekusi Iteratif vs Rekursif")
+    ax.legend()
+    st.pyplot(fig)
