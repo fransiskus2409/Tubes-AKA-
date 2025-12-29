@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import random
 import time
-import matplotlib.pyplot as plt
 
 # Fungsi iteratif untuk menghitung total penghasilan
 @st.cache
