@@ -5,7 +5,7 @@ import time
 import matplotlib.pyplot as plt
 
 # Fungsi iteratif untuk menghitung total penghasilan
-@st.cache
+@st.cache_data
 def hitung_iteratif(data):
     total_penghasilan = 0
     for index, row in data.iterrows():
